@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+        
+        .wrapper {
+            margin-top: 20px;
+            margin-left: 20px;
+            width: 789px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <form action="">
+            <input type="text" id="txtus" placeholder="User name" style="margin-bottom: 10px;">
+            <br>
+            <input type="text" id="txtmk" placeholder="Pass word">
+            <br>
+            <input type="radio" name="gt" id="" value="Nam">
+            <label for="Nam">Nam</label>
+            <input type="radio" name="gt" id="" value="Nữ">
+            <label for="Nữ">Nữ</label>
+            <br>
+            <input type="checkbox" name="" id="" value="Trung Nguyên">Trung Nguyên
+            <br>
+            <input type="checkbox" name="" id="" value="Mekong">Mekong
+            <br>
+            <input type="checkbox" name="" id="" value="Nam Blue">Nam Blue
+            <br>
+            <input type="checkbox" name="" id="" value="Trà Sữa">Trà sữa
+            <br>
+            <input type="button" value="Nhập" onclick="Nhap()">
+        </form>
+    </div>
+
+    <script>
+        function Nhap() {
+            var tendn, mk;
+            tendn = document.getElementById('txtus').value;
+            mk = document.getElementById('txtmk').value;
+
+            var cafe = new Array();
+            var taphop = document.querySelectorAll("input[type='checkbox']");
+            taphop.forEach(function(chk) {
+                if (chk.checked)
+                    cafe.push(chk.value);
+            });
+            var gtinh;
+            var taphopgt = document.querySelectorAll("input[type='radio']");
+            taphopgt.forEach(function(ra) {
+                if (ra.checked)
+                    gtinh = ra.value;
+            });
+            var w = window.open("info.html");
+            localStorage.setItem("us", tendn);
+            localStorage.setItem("pd", mk);
+            localStorage.setItem("cf", cafe);
+            localStorage.setItem("gt", gtinh);
+
+        }
+    </script>
+</body>
+
+</html>
